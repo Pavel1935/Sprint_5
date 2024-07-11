@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -13,5 +12,4 @@ class TestStellarBurger:
         driver.find_element(*Locators.PASSWORD).send_keys(Constants.PASSWORD)
         driver.find_element(*Locators.AUTH_BUTTON).click()
         driver.find_element(*Locators.BUTTON_PERSONAL_ACCOUNT).click()
-        assert WebDriverWait(driver, 15).until(expected_conditions.visibility_of_element_located
-                                             ((By.XPATH, "//button[contains(text(),'Выход')]"))).text == 'Выход'
+        assert WebDriverWait(driver, 15).until(expected_conditions.visibility_of_element_located(Locators.EXIT_BUTTON)).text == 'Выход'
